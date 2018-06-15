@@ -1,0 +1,21 @@
+DROP TABLE transactions;
+DROP TABLE tags;
+DROP TABLE merchands;
+
+CREATE TABLE merchands(
+  id SERIAL4 PRIMARY KEY,
+  name VARCHAR(255)
+);
+
+CREATE TABLE tags(
+  id SERIAL4 PRIMARY KEY,
+  name VARCHAR(255)
+);
+
+CREATE TABLE transactions(
+  id SERIAL4 PRIMARY KEY,
+  merchand_id INT4 REFERENCES merchands.id ON DELETE CASCADE,
+  tag_id INT4 REFERENCES tags.id ON DELETE CASCADE,
+  reference VARCHAR(255),
+  transactions_date DATE
+):
