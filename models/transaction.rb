@@ -43,4 +43,9 @@ class Transaction
     values = [@merchant_id, @tag_id, @reference, @transaction_date, @id]
     SqlRunner.run( sql, values )
   end
+
+  def self.delete_all()
+    sql = "DELETE FROM transactions"
+    SqlRunner.run(sql)
+  end
 end

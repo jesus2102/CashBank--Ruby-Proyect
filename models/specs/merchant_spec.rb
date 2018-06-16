@@ -22,4 +22,8 @@ class MerchantTest < Minitest::Test
     assert_equal('Amazon', value)
   end
 
+  def self.delete_all()
+    sql = "DELETE FROM merchants"
+    SqlRunner.run(sql)
+  end
 end
