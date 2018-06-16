@@ -37,4 +37,31 @@ class Merchant
     values = [@name, @id]
     SqlRunner.run( sql, values )
   end
+
+  def self.delete_all()
+    sql = "DELETE FROM merchants"
+    SqlRunner.run(sql)
+  end
+
+  def delete()
+    sql = "DELETE FROM merchants
+    WHERE id = $1"
+    values = [@id]
+    SqlRunner.run( sql, values )
+  end
+
+  def self.all()
+    sql = "SELECT * FROM merchants"
+    merchants = SqlRunner.run( sql )
+    result = merchants.map { |merchant| Merchant.new(merchant) }
+    return result
+  end
+
+  def self.find(id)
+    sql = "SELECT * FROM merchants WHERE id = $1"
+    values = [id]
+    merchant = SqlRunner.run( sql, values )
+    result = Merchant.new( merchant.first )
+    return result
+  end
 end
