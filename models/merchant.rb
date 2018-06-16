@@ -23,4 +23,18 @@ class Merchant
     merchant = SqlRunner.run(sql, values)
     @id = merchant.first()['id'].to_i
   end
+
+  def update()
+    sql = "UPDATE merchants
+    SET
+    (
+      name,
+    ) =
+    (
+      $1
+    )
+    WHERE id = $2"
+    values = [@name, @id]
+    SqlRunner.run( sql, values )
+  end
 end
