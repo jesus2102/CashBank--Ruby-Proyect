@@ -26,4 +26,18 @@ class MerchantTest < Minitest::Test
     sql = "DELETE FROM merchants"
     SqlRunner.run(sql)
   end
+
+  def delete()
+    sql = "DELETE FROM merchants
+    WHERE id = $1"
+    values = [@id]
+    SqlRunner.run( sql, values )
+  end
+
+  def self.all()
+    sql = "SELECT * FROM merchants"
+    merchants = SqlRunner.run( sql )
+    result = merchants.map { |merchant| Merchant.new(merchant) }
+    return result
+  end
 end
