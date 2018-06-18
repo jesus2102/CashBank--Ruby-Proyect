@@ -60,4 +60,23 @@ class Transaction
     result = Transaction.new( transaction.first )
     return result
   end
+
+  def merchant()
+    sql = "SELECT * FROM merchants WHERE id = $1"
+    values = [@merchant_id]
+    merchant = SqlRunner.run(sql, values).first
+    result = Merchant.new(merchant)
+    return result.name
+    # run sql with sql runner
+    # create new merchant object with the hash that is returned
+    #return merchant object
+  end
+
+  def tag()
+    sql = "SELECT * FROM tags WHERE id = $1"
+    values = [@tag_id]
+    tag = SqlRunner.run(sql, values).first
+    result = Tag.new(tag)
+    return result.name
+  end
 end

@@ -1,0 +1,15 @@
+<h2>Tags</h2>
+
+<div>
+  <ol>
+    <% @tags.each do |tag| %>
+
+    <div>
+      <li><%= tag.name  %></li>
+    </div>
+
+    <hr/>
+
+    <% end %>
+  </ol>
+</div>
