@@ -11,13 +11,8 @@ class Tag
 
   def save()
     sql = "INSERT INTO tags
-    (
-      name
-    )
-    VALUES
-    (
-      $1
-    )
+    (name)
+    VALUES ($1)
     RETURNING *"
     values = [@name]
     tag = SqlRunner.run(sql, values)
@@ -26,13 +21,7 @@ class Tag
 
   def update()
     sql = "UPDATE tags
-    SET
-    (
-      name,
-    ) =
-    (
-      $1
-    )
+    SET name = $1
     WHERE id = $2"
     values = [@name, @id]
     SqlRunner.run( sql, values )
