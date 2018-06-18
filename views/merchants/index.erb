@@ -1,17 +1,36 @@
 <h2>Merchants</h2>
 
-<a href="/merchants/new">Add Merchant</a>
+<br>
+<br>
+<form action="/merchants" method="post" class="cnt-form">
+  <div>
+    <label for="name">Add Merchant:</label>
+    <input type="text" name="name" id="name"/>
 
+    <input type="submit" value="Create" />
+  </div>
+</form>
+<br>
+<br>
+<br>
 <div>
-  <ol>
+  <table>
+    <tr class="head">
+      <th></th>
+      <th>Name</th>
+      <th></th>
+      <th></th>
+    </tr>
+    <% x = 0 %>
     <% @merchants.each do |merchant| %>
-
-    <div>
-      <li><%= merchant.name  %></li>
-    </div>
-
-    <hr/>
-
+    <tr>
+      <div>
+        <th class="index"><%= x += 1  %></th>
+        <th class="name"><%= merchant.name  %> </th>
+        <th class="img"><img src="/images/edit.png" class="icon"> </th>
+        <th class="options"></th>
+      </div>
+    </tr>
     <% end %>
-  </ol>
+  </table>
 </div>

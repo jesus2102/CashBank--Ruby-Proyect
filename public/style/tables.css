@@ -1,0 +1,32 @@
+.head{
+  background-color: skyblue;
+  border-bottom: 2px solid;
+}
+
+th{
+  border-bottom: 1px solid;
+}
+
+.index{
+  width: 5%;
+  text-align: center;
+}
+
+.name{
+  width: 15%;
+}
+
+.img{
+  width: 5%;
+  text-align: center;
+}
+
+.options{
+  width: 35%
+}
+
+table{
+  margin: auto;
+  text-align: left;
+  width: 60%;
+}

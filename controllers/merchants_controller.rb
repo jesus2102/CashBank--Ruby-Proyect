@@ -17,3 +17,9 @@ post '/merchants' do
   @merchant.save
   redirect '/merchants'
 end
+
+post '/merchants/:id/delete' do
+  @merchant = Merchant.find(params[:id].to_i())
+  @merchant.delete()
+  erb (:delete)
+end
