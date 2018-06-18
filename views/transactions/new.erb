@@ -1,0 +1,36 @@
+<h2>Transactions</h2>
+
+<form method="post" action="/transactions">
+
+  <div>
+    <div>
+      <label for="merchant_id">Merchant:</label>
+      <select name="merchants" id="merchant_select">
+        <% @merchants.each do |merchant| %>
+            <option value=<%= merchant.id %>><%= merchant.name %></option>
+        <% end %>
+      </select>
+    </div>
+
+    <div>
+      <label for="tag_id">Tag:</label>
+      <select name="tags" id="tag_select">
+        <% @tags.each do |tag| %>
+            <option value=<%= tag.id %>><%= tag.name %></option>
+        <% end %>
+      </select>
+    </div>
+
+    <div>
+      <label for="amount">Amount:</label>
+      <input type="number" name="amount" id="amount"/>
+    </div>
+
+    <div>
+      <label for="reference">Reference:</label>
+      <input type="text" maxlength="32" name="referece" id="reference"/>
+    </div>
+
+    <input type="submit" value="Add" />
+    </div>
+</form>
