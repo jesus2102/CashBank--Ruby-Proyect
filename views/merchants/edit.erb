@@ -26,8 +26,24 @@
       <div>
         <td class="index"><%= x += 1  %></td>
         <td class="name"><%= merchant.name  %> </td>
+        <% if merchant.id == @id  %>
+        <td class="img">
+          <form method="post" action="/merchants/<%= merchant.id %>/delete">
+            <input type="image" src="/images/delete.png" class="delete_img">
+          </form>
+        </td>
+        <td class="update">
+          <form action="/merchants/<%= merchant.id %>" method="post" class="cnt-form">
+            <div class="update_form_row">
+              <input type="text" name="name" id="name" class="input_name">
+              <input type="image" src="/images/update.png" class="update_img">
+            </div>
+          </form>
+        </td>
+        <% else  %>
         <td class="img"><a href="/merchants/<%= merchant.id  %>/edit"><img src="/images/edit.png" class="icon"></a> </td>
         <td class="update"></td>
+        <%end  %>
       </div>
     </tr>
     <% end %>

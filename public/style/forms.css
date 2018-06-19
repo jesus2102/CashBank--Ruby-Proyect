@@ -1,3 +1,14 @@
 .cnt-form{
   text-align: center;
 }
+
+#name.input_name {
+  margin-top: 0.6em;
+  margin-bottom: auto;
+  line-height: 1.6em;
+  vertical-align: middle;
+}
+
+.update_form_row {
+  display: inline-block;
+}

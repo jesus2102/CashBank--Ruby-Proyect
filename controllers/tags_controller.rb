@@ -17,3 +17,22 @@ post '/tags' do
   @tag.save
   redirect '/tags'
 end
+
+post '/tags/:id' do
+  @tag = Tag.new(params)
+  @tag.update()
+  redirect '/tags'
+end
+
+get '/tags/:id/edit' do
+  @tags = Tag.all()
+  @edit = Tag.find(params[:id].to_i())
+  @id = params[:id].to_i()
+  erb (:"tags/edit")
+end
+
+post '/tags/:id/delete' do
+  @tag = Tag.find(params[:id].to_i())
+  @tag.delete()
+  redirect '/tags'
+end

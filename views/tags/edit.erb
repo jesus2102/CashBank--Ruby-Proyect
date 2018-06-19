@@ -26,8 +26,24 @@
       <div>
         <td class="index"><%= x += 1  %></td>
         <td class="name"><%= tag.name  %> </td>
+        <% if tag.id == @id  %>
+        <td class="img">
+          <form method="post" action="/tags/<%= tag.id %>/delete">
+            <input type="image" src="/images/delete.png" class="delete_img">
+          </form>
+        </td>
+        <td class="update">
+          <form action="/tags/<%= tag.id %>" method="post" class="cnt-form">
+            <div class="update_form_row">
+              <input type="text" name="name" id="name" class="input_name">
+              <input type="image" src="/images/update.png" class="update_img">
+            </div>
+          </form>
+        </td>
+        <% else  %>
         <td class="img"><a href="/tags/<%= tag.id  %>/edit"><img src="/images/edit.png" class="icon"></a> </td>
         <td class="update"></td>
+        <%end  %>
       </div>
     </tr>
     <% end %>

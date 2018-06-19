@@ -4,6 +4,10 @@
 }
 
 th{
+    border-bottom: 2px;
+}
+
+td{
   border-bottom: 1px solid;
 }
 
@@ -21,9 +25,10 @@ th{
   text-align: center;
 }
 
-.options{
+.update{
   width: 35%
 }
+
 
 table{
   margin: auto;

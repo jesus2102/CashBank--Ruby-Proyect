@@ -1,0 +1,14 @@
+.flex_row{
+  display: flex;
+  flex-direction: row;
+  background-color: skyblue;
+  margin: 0px;
+}
+
+ul{
+  margin: 0px;
+}
+
+h1{
+  margin: 4px;
+}
