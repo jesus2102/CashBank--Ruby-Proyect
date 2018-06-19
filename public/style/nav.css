@@ -3,6 +3,7 @@
   flex-direction: row;
   background-color: skyblue;
   margin: 0px;
+  border-bottom: 2px solid black;
 }
 
 ul{
@@ -10,5 +11,25 @@ ul{
 }
 
 h1{
-  margin: 4px;
+  color: white;
+  margin: 0px;
+  padding: 6px;
+  text-decoration: none;
+
+}
+
+a{
+  text-decoration: none;
+}
+
+nav h1:link {
+    background-color: skyblue;
+}
+
+nav h1:visited {
+    background-color: skyblue;
+}
+
+nav h1:hover {
+    background-color: lightblue;
 }
