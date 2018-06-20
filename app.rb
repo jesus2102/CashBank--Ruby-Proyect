@@ -5,5 +5,8 @@ require_relative('controllers/tags_controller')
 require_relative('controllers/transactions_controller')
 
 get '/' do
-  erb( :index )
+  @transactions = Transaction.all()
+  @merchants = Merchant.all()
+  @tags = Tag.all()
+  redirect '/transactions'
 end

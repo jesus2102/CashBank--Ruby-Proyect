@@ -1,64 +1,67 @@
 <h2>Transactions</h2>
 
-<form method="post" action="/transactions" class="new_trans">
-  <table>
-    <tr>
-      <td>
-        <div>
-          <label for="transaction_date">date:</label>
-          <input type="date" name="transaction_date"  value="<%= Date.today %>">
-        </div>
-      </td>
-      <td></td>
-      <td></td>
-      <td>
-        <div>
-          <label for="merchant_select">Merchant:</label>
-          <select name="merchant_id" id="merchant_select">
-            <% @merchants.each do |merchant| %>
-            <option value=<%= merchant.id %>><%= merchant.name %></option>
-            <% end %>
-          </select>
-        </div>
-      </td>
-      <td></td>
-      <td></td>
-      <td>
-        <div>
-          <label for="tag_select">Tag:</label>
-          <select name="tag_id" id="tag_select">
-            <% @tags.each do |tag| %>
-            <option value=<%= tag.id %>><%= tag.name %></option>
-            <% end %>
-          </select>
-        </div>
-      </td>
-      <td></td>
-      <td></td>
-      <td>
-        <div>
-          <label for="reference">Reference:</label>
-          <input type="text" name="reference" id="reference"/>
-        </div>
-      </td>
-      <td></td>
-      <td></td>
-      <td>
-        <div>
-          <label for="amount">Amount:</label>
-          <input type="number" name="amount" id="amount"/>
-        </div>
-      </td>
-      <td></td>
-      <td></td>
-      <td>
-        <div class="add">
-          <input type="submit" value="Add" />
-        </div>
-      </td>
-    </tr>
-  </table>
-</form>
+
+<div class="SAVE">
+  <form method="post" action="/transactions" class="new_trans">
+    <table>
+      <tr>
+        <td>
+          <div>
+            <label for="transaction_date">date:</label>
+            <input type="date" name="transaction_date"  value="<%= Date.today %>">
+          </div>
+        </td>
+        <td></td>
+        <td></td>
+        <td>
+          <div>
+            <label for="merchant_select">Merchant:</label>
+            <select name="merchant_id" id="merchant_select">
+              <% @merchants.each do |merchant| %>
+              <option value=<%= merchant.id %>><%= merchant.name %></option>
+              <% end %>
+            </select>
+          </div>
+        </td>
+        <td></td>
+        <td></td>
+        <td>
+          <div>
+            <label for="tag_select">Tag:</label>
+            <select name="tag_id" id="tag_select">
+              <% @tags.each do |tag| %>
+              <option value=<%= tag.id %>><%= tag.name %></option>
+              <% end %>
+            </select>
+          </div>
+        </td>
+        <td></td>
+        <td></td>
+        <td>
+          <div>
+            <label for="reference">Reference:</label>
+            <input type="text" name="reference" id="reference"/>
+          </div>
+        </td>
+        <td></td>
+        <td></td>
+        <td>
+          <div>
+            <label for="amount">Amount:</label>
+            <input type="number" name="amount" id="amount"/>
+          </div>
+        </td>
+        <td></td>
+        <td></td>
+        <td>
+          <div class="add">
+            <input type="submit" value="Add" />
+          </div>
+        </td>
+      </tr>
+    </table>
+  </form>
+</div>
 
 <br>
 <br>
@@ -71,80 +74,69 @@
     <th>Amount</th>
     <th></th>
   </tr>
-  <% @transactions.each do |transaction| %>
-  <% if transaction.id == @id  %>
-  <tr>
-    <div>
-      <td class="date"><%= transaction.transaction_date %></td>
-      <td class="merch"><%= transaction.merchant %></td>
-      <td class="tag"><%= transaction.tag %></td>
-      <td class="trans"><%= transaction.reference %></td>
-      <td class="amount"><%= transaction.amount %></td>
-      <td class="edit">
+
+  <div class="SHOW_ALL">
+    <% @transactions.each do |transaction| %>
+    <% if transaction.id == @id  %>
+      <tr>
+        <td class="date"><%= transaction.transaction_date %></td>
+        <td class="merch"><%= transaction.merchant %></td>
+        <td class="tag"><%= transaction.tag %></td>
+        <td class="trans"><%= transaction.reference %></td>
+        <td class="amount"><%= transaction.amount %></td>
+    <div class="DELETE">
+        <td class="edit">
         <form method="post" action="/transactions/<%= transaction.id %>/delete">
           <input type="image" src="/images/delete.png" class="delete_img">
         </form></td>
-      </div>
-    </tr>
-    <form method="post" action="/transactions/<%= transaction.id %>">
-      <tr>
-        <td>
-          <div>
-            <input type="date" name="transaction_date" value="<%= transaction.transaction_date_object %>">
-          </div>
-        </td>
-
-        <td>
-          <div>
-            <select name="merchant_id" id="merchant_select">
-              <% @merchants.each do |merchant| %>
-              <option value=<%= merchant.id %>><%= merchant.name %></option>
-              <% end %>
-            </select>
-          </div>
-        </td>
-
-        <td>
-          <div>
-            <select name="tag_id" id="tag_select">
-              <% @tags.each do |tag| %>
-              <option value=<%= tag.id %>><%= tag.name %></option>
-              <% end %>
-            </select>
-          </div>
-        </td>
-
-        <td>
-          <div>
-            <input type="text" name="reference" id="reference"/>
-          </div>
-        </td>
-
-        <td>
-          <div>
-            <input type="number" name="amount" id="amount"/>
-          </div>
-        </td>
-
-        <td>
-          <div class="edit_tran">
-            <input type="image" src="/images/update.png" class="img2">
-          </div>
-        </td>
       </tr>
-    </form>
-    <% else  %>
-    <tr>
-      <div>
+    </div>
+    <div class="EDIT">
+      <form method="post" action="/transactions/<%= transaction.id %>">
+        <tr>
+          <td>
+            <input type="date" name="transaction_date" value="<%= transaction.transaction_date_object %>"></td>
+          <td>
+            <select name="merchant_id" id="merchant_select" selected="<%= transaction.merchant_id  %>">
+              <% @merchants.each do |merchant| %>
+                <% if merchant.id == transaction.merchant_id %>
+                  <option value=<%= merchant.id %> selected><%= merchant.name %></option>
+                <% else %>
+                  <option value=<%= merchant.id %>><%= merchant.name %></option>
+                <% end %>
+              <% end %>
+            </select></td>
+          <td>
+            <select name="tag_id" id="tag_select" selected="<%= transaction.tag_id  %>">
+              <% @tags.each do |tag| %>
+                <% if tag.id == transaction.tag_id %>
+                  <option value=<%= tag.id %> selected><%= tag.name %></option>
+                <% else %>
+                  <option value=<%= tag.id %>><%= tag.name %></option>
+                <% end %>
+              <% end %>
+            </select></td>
+          <td>
+              <input type="text" name="reference" id="reference" value="<%= transaction.reference %>"/></td>
+          <td>
+              <input type="number" name="amount" id="amount" value="<%=transaction.amount %>"/></td>
+          <td>
+            <div class="edit_tran">
+              <input type="image" src="/images/update.png" class="img2">
+            </div></td>
+        </tr>
+      </form>
+    </div>
+      <% else  %>
+      <tr>
         <td class="date"><%= transaction.transaction_date %></td>
         <td class="merch"><%= transaction.merchant %></td>
         <td class="tag"><%= transaction.tag %></td>
         <td class="trans"><%= transaction.reference %></td>
         <td class="amount"><%= transaction.amount %></td>
         <td class="edit"><a href="/transactions/<%= transaction.id  %>/edit"><img src="/images/edit.png" class="icon"></a></td>
-      </div>
-    </tr>
-    <% end  %>
-
+      </tr>
+      <% end  %>
     <% end %>
-  </table>
+  </div>
+</table>
