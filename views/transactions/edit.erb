@@ -79,7 +79,10 @@
       <td class="tag"><%= transaction.tag %></td>
       <td class="trans"><%= transaction.reference %></td>
       <td class="amount"><%= transaction.amount %></td>
-      <td class="edit"><a href="/transactions/<%= transaction.id  %>/edit"><img src="/images/edit.png" class="icon"></a></td>
+      <td class="edit">
+        <form method="post" action="/transactions/<%= transaction.id %>/delete">
+        <input type="image" src="/images/delete.png" class="delete_img">
+      </form></td>
     </div>
   </tr>
   <% end %>

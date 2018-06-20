@@ -12,3 +12,21 @@
 .update_form_row {
   display: inline-block;
 }
+
+.new_trans{
+  width: 50%;
+  display: flex;
+  flex-direction: row;
+  text-align: left;
+  margin-left: auto;
+  margin-right: auto;
+}
+
+.add{
+  margin-top: 18px;
+  margin-bottom: auto;
+}
+
+.amount{
+
+}
