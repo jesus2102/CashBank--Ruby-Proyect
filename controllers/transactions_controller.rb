@@ -1,4 +1,5 @@
 require( 'sinatra' )
+require( 'pry' )
 require( 'sinatra/contrib/all' )
 require_relative( '../models/transaction.rb' )
 also_reload( '../models/*' )
@@ -25,9 +26,15 @@ get '/transactions/:id/edit' do
   @merchants = Merchant.all()
   @tags = Tag.all()
   @transactions = Transaction.all()
-  @edit = Transaction.find(params[:id].to_i())
+  @date = params[:transaction_date_object]
   @id = params[:id].to_i()
   erb (:"transactions/edit")
+end
+
+post '/transactions/:id' do
+  transaction = Transaction.new(params)
+  transaction.update
+  redirect '/transactions'
 end
 
 post '/transactions/:id/delete' do

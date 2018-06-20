@@ -4,11 +4,12 @@
 }
 
 th{
-    border-bottom: 2px;
+  border-bottom: 2px;
 }
 
 td{
   border-bottom: 1px solid;
+  vertical-align: middle;
 }
 
 .index{
@@ -25,13 +26,19 @@ td{
   text-align: center;
 }
 
+.img2{
+  height: 90%;
+  vertical-align: bottom;
+}
+
 .update{
   width: 35%
 }
 
 
 table{
-  margin: auto;
+  margin-left: auto;
+  margin-right: auto;
   text-align: left;
   width: 60%;
 }

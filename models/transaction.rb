@@ -2,7 +2,7 @@ require_relative('../db/sql_runner')
 
 class Transaction
 
-  attr_reader(:id, :merchant_id, :tag_id,:amount, :reference, :transaction_date)
+  attr_reader(:id, :merchant_id, :tag_id,:amount, :reference, :transaction_date, :transaction_date_object)
 
   def initialize(options)
     @id = options['id'].to_i() if options['id']
@@ -11,6 +11,7 @@ class Transaction
     @amount = options['amount'].to_i()
     @reference = options['reference']
     @transaction_date = options['transaction_date']
+    @transaction_date_object = Date.parse(@transaction_date)
   end
 
   def save()

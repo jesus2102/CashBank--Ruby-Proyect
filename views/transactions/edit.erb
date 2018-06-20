@@ -6,7 +6,7 @@
       <td>
         <div>
           <label for="transaction_date">date:</label>
-          <input type="date" name="transaction_date">
+          <input type="date" name="transaction_date"  value="<%= Date.today %>">
         </div>
       </td>
       <td></td>
@@ -72,6 +72,7 @@
     <th></th>
   </tr>
   <% @transactions.each do |transaction| %>
+  <% if transaction.id == @id  %>
   <tr>
     <div>
       <td class="date"><%= transaction.transaction_date %></td>
@@ -81,9 +82,69 @@
       <td class="amount"><%= transaction.amount %></td>
       <td class="edit">
         <form method="post" action="/transactions/<%= transaction.id %>/delete">
-        <input type="image" src="/images/delete.png" class="delete_img">
-      </form></td>
-    </div>
-  </tr>
-  <% end %>
-</table>
+          <input type="image" src="/images/delete.png" class="delete_img">
+        </form></td>
+      </div>
+    </tr>
+    <form method="post" action="/transactions/<%= transaction.id %>">
+      <tr>
+        <td>
+          <div>
+            <input type="date" name="transaction_date" value="<%= transaction.transaction_date_object %>">
+          </div>
+        </td>
+
+        <td>
+          <div>
+            <select name="merchant_id" id="merchant_select">
+              <% @merchants.each do |merchant| %>
+              <option value=<%= merchant.id %>><%= merchant.name %></option>
+              <% end %>
+            </select>
+          </div>
+        </td>
+
+        <td>
+          <div>
+            <select name="tag_id" id="tag_select">
+              <% @tags.each do |tag| %>
+              <option value=<%= tag.id %>><%= tag.name %></option>
+              <% end %>
+            </select>
+          </div>
+        </td>
+
+        <td>
+          <div>
+            <input type="text" name="reference" id="reference"/>
+          </div>
+        </td>
+
+        <td>
+          <div>
+            <input type="number" name="amount" id="amount"/>
+          </div>
+        </td>
+
+        <td>
+          <div class="edit_tran">
+            <input type="image" src="/images/update.png" class="img2">
+          </div>
+        </td>
+      </tr>
+    </form>
+    <% else  %>
+    <tr>
+      <div>
+        <td class="date"><%= transaction.transaction_date %></td>
+        <td class="merch"><%= transaction.merchant %></td>
+        <td class="tag"><%= transaction.tag %></td>
+        <td class="trans"><%= transaction.reference %></td>
+        <td class="amount"><%= transaction.amount %></td>
+        <td class="edit"><a href="/transactions/<%= transaction.id  %>/edit"><img src="/images/edit.png" class="icon"></a></td>
+      </div>
+    </tr>
+    <% end  %>
+
+    <% end %>
+  </table>
