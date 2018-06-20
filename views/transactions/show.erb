@@ -1,0 +1,10 @@
+<% @transactions.each do |transaction| %>
+  <tr>
+      <td class="date"><%= transaction.transaction_date %></td>
+      <td class="merch"><%= transaction.merchant %></td>
+      <td class="tag"><%= transaction.tag %></td>
+      <td class="trans"><%= transaction.reference %></td>
+      <td class="amount"><%= transaction.amount %></td>
+      <td class="edit"><a href="/transactions/<%= transaction.id  %>/edit"><img src="/images/edit.png" class="icon"></a></td>
+  </tr>
+<% end %>

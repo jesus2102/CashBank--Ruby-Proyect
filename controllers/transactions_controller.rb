@@ -28,7 +28,7 @@ get '/transactions/:id/edit' do
   @transactions = Transaction.all()
   @date = params[:transaction_date_object]
   @id = params[:id].to_i()
-  erb (:"transactions/edit")
+  erb (:"transactions/modify")
 end
 
 post '/transactions/:id' do

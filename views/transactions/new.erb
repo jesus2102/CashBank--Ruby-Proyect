@@ -1,0 +1,49 @@
+<form method="post" action="/transactions" class="new_trans">
+  <table>
+    <tr>
+      <td>
+          <label for="transaction_date">date:</label>
+          <input type="date" name="transaction_date" value="<%= Date.today %>">
+      </td>
+      <td></td>
+      <td></td>
+      <td>
+          <label for="merchant_select">Merchant:</label>
+          <select name="merchant_id" id="merchant_select">
+            <% @merchants.each do |merchant| %>
+            <option value=<%= merchant.id %>><%= merchant.name %></option>
+            <% end %>
+          </select>
+      </td>
+      <td></td>
+      <td></td>
+      <td>
+          <label for="tag_select">Tag:</label>
+          <select name="tag_id" id="tag_select">
+            <% @tags.each do |tag| %>
+            <option value=<%= tag.id %>><%= tag.name %></option>
+            <% end %>
+          </select>
+      </td>
+      <td></td>
+      <td></td>
+      <td>
+          <label for="reference">Reference:</label>
+          <input type="text" name="reference" id="reference"/>
+      </td>
+      <td></td>
+      <td></td>
+      <td>
+          <label for="amount">Amount:</label>
+          <input type="number" name="amount" id="amount"/>
+      </td>
+      <td></td>
+      <td></td>
+      <td>
+        <div class="add">
+          <input type="submit" value="Add" />
+        </div>
+      </td>
+    </tr>
+  </table>
+</form>
