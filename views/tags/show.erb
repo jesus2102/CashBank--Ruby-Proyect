@@ -1,0 +1,11 @@
+<% x = 0 %>
+<% @tags.each do |tag| %>
+<tr>
+  <div>
+    <td class="index"><%= x += 1  %></td>
+    <td class="name"><%= tag.name  %> </td>
+    <td class="img"><a href="/tags/<%= tag.id  %>/edit"><img src="/images/edit.png" class="icon"></a> </td>
+    <td class="update"></td>
+  </div>
+</tr>
+<% end %>

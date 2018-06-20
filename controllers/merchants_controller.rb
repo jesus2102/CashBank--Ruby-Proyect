@@ -28,7 +28,7 @@ get '/merchants/:id/edit' do
   @merchants = Merchant.all()
   @edit = Merchant.find(params[:id].to_i())
   @id = params[:id].to_i()
-  erb (:"merchants/edit")
+  erb (:"merchants/modify")
 end
 
 post '/merchants/:id/delete' do

@@ -1,0 +1,9 @@
+<% x = 0 %>
+<% @merchants.each do |merchant| %>
+<tr>
+  <td class="index"><%= x += 1  %></td>
+  <td class="name"><%= merchant.name  %> </td>
+  <td class="img"><a href="/merchants/<%= merchant.id  %>/edit"><img src="/images/edit.png" class="icon"></a> </td>
+  <td class="update"></td>
+</tr>
+<% end %>

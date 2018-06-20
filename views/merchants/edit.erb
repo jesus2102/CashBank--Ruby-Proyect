@@ -1,57 +1,33 @@
-<h2>Merchants</h2>
+<% x = 0 %>
+<% @merchants.each do |merchant| %>
+<tr>
+  <div>
+    <td class="index"><%= x += 1  %></td>
+    <td class="name"><%= merchant.name  %> </td>
+    <% if merchant.id == @id  %>
+<div class="DELETE">
+<td class="img">
+  <form method="post" action="/merchants/<%= merchant.id %>/delete">
+    <input type="image" src="/images/delete.png" class="
 
-<br>
-<br>
-<div class="SAVE">
-  <form action="/merchants" method="post" class="cnt-form">
-    <label for="name">Add Merchant:</label>
-    <input type="text" name="name" id="name"/>
-    <input type="submit" value="Create" />
+    delete_img">
   </form>
+</td>
 </div>
-<br>
-<br>
-<div>
-<table>
-  <tr class="head">
-    <th></th>
-    <th>Name</th>
-    <th></th>
-    <th></th>
-  </tr>
-  <div class="SHOW_ALL">
-      <% x = 0 %>
-      <% @merchants.each do |merchant| %>
-      <tr>
-        <div>
-          <td class="index"><%= x += 1  %></td>
-          <td class="name"><%= merchant.name  %> </td>
-          <% if merchant.id == @id  %>
-    <div class="DELETE">
-      <td class="img">
-        <form method="post" action="/merchants/<%= merchant.id %>/delete">
-          <input type="image" src="/images/delete.png" class="
-
-          delete_img">
-        </form>
-      </td>
+<div class="EDIT">
+<td class="update">
+  <form action="/merchants/<%= merchant.id %>" method="post" class="cnt-form">
+    <div class="update_form_row">
+      <input type="text" name="name" id="name" class="input_name" value="<%= merchant.name  %>">
+      <input type="image" src="/images/update.png" class="update_img">
     </div>
-    <div class="EDIT">
-      <td class="update">
-        <form action="/merchants/<%= merchant.id %>" method="post" class="cnt-form">
-          <div class="update_form_row">
-            <input type="text" name="name" id="name" class="input_name" value="<%= merchant.name  %>">
-            <input type="image" src="/images/update.png" class="update_img">
-          </div>
-        </form>
-      </td>
-    </div>
-          <% else  %>
-          <td class="img"><a href="/merchants/<%= merchant.id  %>/edit"><img src="/images/edit.png" class="icon"></a> </td>
-          <td class="update"></td>
-          <%end  %>
-        </div>
-      </tr>
-      <% end %>
+  </form>
+</td>
+</div>
+    <% else  %>
+    <td class="img"><a href="/merchants/<%= merchant.id  %>/edit"><img src="/images/edit.png" class="icon"></a> </td>
+    <td class="update"></td>
+    <%end  %>
   </div>
-</table>
+</tr>
+<% end %>

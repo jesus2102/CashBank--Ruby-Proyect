@@ -28,7 +28,7 @@ get '/tags/:id/edit' do
   @tags = Tag.all()
   @edit = Tag.find(params[:id].to_i())
   @id = params[:id].to_i()
-  erb (:"tags/edit")
+  erb (:"tags/modify")
 end
 
 post '/tags/:id/delete' do

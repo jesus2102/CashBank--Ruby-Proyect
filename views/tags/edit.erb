@@ -1,55 +1,31 @@
-<h2>Tags</h2>
-
-<br>
-<br>
+<% x = 0 %>
+<% @tags.each do |tag| %>
+<tr>
+  <div>
+    <td class="index"><%= x += 1  %></td>
+    <td class="name"><%= tag.name  %> </td>
+    <% if tag.id == @id  %>
+<div class="DELETE">
+  <td class="img">
+    <form method="post" action="/tags/<%= tag.id %>/delete">
+      <input type="image" src="/images/delete.png" class="delete_img">
+    </form>
+  </td>
+</div>
 <div class="SAVE">
-  <form action="/tags" method="post" class="cnt-form">
-    <label for="name">Add Tag:</label>
-    <input type="text" name="name" id="name"/>
-    <input type="submit" value="Create" />
+  <td class="update">
+    <form action="/tags/<%= tag.id %>" method="post" class="cnt-form">
+    <div class="update_form_row">
+      <input type="text" name="name" id="name" class="input_name" value="<%= tag.name  %>">
+      <input type="image" src="/images/update.png" class="update_img">
+    </div>
   </form>
 </div>
-<br>
-<br>
-<table>
-  <tr class="head">
-    <th></th>
-    <th>Name</th>
-    <th></th>
-    <th></th>
-  </tr>
-
-  <div class="SHOW_ALL">
-    <% x = 0 %>
-    <% @tags.each do |tag| %>
-    <tr>
-      <div>
-        <td class="index"><%= x += 1  %></td>
-        <td class="name"><%= tag.name  %> </td>
-        <% if tag.id == @id  %>
-    <div class="DELETE">
-      <td class="img">
-        <form method="post" action="/tags/<%= tag.id %>/delete">
-          <input type="image" src="/images/delete.png" class="delete_img">
-        </form>
-      </td>
-    </div>
-    <div class="SAVE">
-      <td class="update">
-        <form action="/tags/<%= tag.id %>" method="post" class="cnt-form">
-        <div class="update_form_row">
-          <input type="text" name="name" id="name" class="input_name" value="<%= tag.name  %>">
-          <input type="image" src="/images/update.png" class="update_img">
-        </div>
-      </form>
-    </div>
-        </td>
-        <% else  %>
-        <td class="img"><a href="/tags/<%= tag.id  %>/edit"><img src="/images/edit.png" class="icon"></a> </td>
-        <td class="update"></td>
-        <%end  %>
-      </div>
-    </tr>
-    <% end %>
+    </td>
+    <% else  %>
+    <td class="img"><a href="/tags/<%= tag.id  %>/edit"><img src="/images/edit.png" class="icon"></a> </td>
+    <td class="update"></td>
+    <%end  %>
   </div>
-</table>
+</tr>
+<% end %>
