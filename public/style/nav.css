@@ -33,3 +33,12 @@ nav h1:visited {
 nav h1:hover {
     background-color: lightblue;
 }
+
+.balance{
+  display: block;
+  text-align: right;
+  color: grey;
+  margin-right: 5em;
+  padding: 6px;
+  text-decoration: none;
+}

@@ -4,7 +4,7 @@
       <td class="merch"><%= transaction.merchant %></td>
       <td class="tag"><%= transaction.tag %></td>
       <td class="trans"><%= transaction.reference %></td>
-      <td class="amount"><%= transaction.amount %></td>
+      <td class="amount"><%= Money.money_to_layout(transaction.amount) %></td>
       <td class="edit"><a href="/transactions/<%= transaction.id  %>/edit"><img src="/images/edit.png" class="icon"></a></td>
   </tr>
 <% end %>

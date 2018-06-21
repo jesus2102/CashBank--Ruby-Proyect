@@ -18,5 +18,5 @@ CREATE TABLE transactions(
   tag_id INT4 REFERENCES tags(id) ON DELETE CASCADE,
   amount INT4,
   reference VARCHAR(255),
-  transaction_date TIMESTAMP
+  transaction_date DATE
 );

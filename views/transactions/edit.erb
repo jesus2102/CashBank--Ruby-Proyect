@@ -5,7 +5,7 @@
     <td class="merch"><%= transaction.merchant %></td>
     <td class="tag"><%= transaction.tag %></td>
     <td class="trans"><%= transaction.reference %></td>
-    <td class="amount"><%= transaction.amount %></td>
+    <td class="amount"><%= Money.money_to_layout(transaction.amount) %></td>
 <div class="DELETE">
     <td class="edit">
     <form method="post" action="/transactions/<%= transaction.id %>/delete">
@@ -41,7 +41,7 @@
       <td>
           <input type="text" name="reference" id="reference" value="<%= transaction.reference %>"/></td>
       <td>
-          <input type="number" name="amount" id="amount" value="<%=transaction.amount %>"/></td>
+          <input type="number" name="amount" id="amount" value="<%= Money.money_to_layout(transaction.amount) %>" step="0.01"/></td>
       <td>
         <div class="edit_tran">
           <input type="image" src="/images/update.png" class="img2">
@@ -55,7 +55,7 @@
     <td class="merch"><%= transaction.merchant %></td>
     <td class="tag"><%= transaction.tag %></td>
     <td class="trans"><%= transaction.reference %></td>
-    <td class="amount"><%= transaction.amount %></td>
+    <td class="amount"><%= Money.money_to_layout(transaction.amount) %></td>
     <td class="edit"><a href="/transactions/<%= transaction.id  %>/edit"><img src="/images/edit.png" class="icon"></a></td>
   </tr>
   <% end  %>

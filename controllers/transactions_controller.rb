@@ -2,6 +2,7 @@ require( 'sinatra' )
 require( 'pry' )
 require( 'sinatra/contrib/all' )
 require_relative( '../models/transaction.rb' )
+require_relative( '../models/money.rb' )
 also_reload( '../models/*' )
 
 get '/transactions' do
@@ -18,6 +19,8 @@ get '/transactions/new' do
 end
 
 post '/transactions' do
+  params['amount'] = Money.in_out(params['type'], params['amount'].to_f())
+  params['amount'] =  Money.money_to_db(params['amount'])
   Transaction.new(params).save
   redirect '/transactions'
 end
@@ -32,6 +35,7 @@ get '/transactions/:id/edit' do
 end
 
 post '/transactions/:id' do
+  params['amount'] = Money.money_to_db(params['amount'])
   transaction = Transaction.new(params)
   transaction.update
   redirect '/transactions'

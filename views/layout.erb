@@ -14,7 +14,9 @@
         <ul><a href="/"><h1>Transactions</h1></a></ul>
         <ul><a href="/merchants"><h1>Merchants</h1></a></ul>
         <ul><a href="/tags"><h1>Tags</h1></a></ul>
+        
       </nav>
+      <ul class="balance"><h2>BALANCE: £ <%= Transaction.balance()  %></h2></ul>
     </main>
     <section id="content">
       <%= yield  %>

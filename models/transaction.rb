@@ -1,4 +1,5 @@
 require_relative('../db/sql_runner')
+require_relative('./money')
 
 class Transaction
 
@@ -48,7 +49,7 @@ class Transaction
   end
 
   def self.all()
-    sql = "SELECT * FROM transactions"
+    sql = "SELECT * FROM transactions ORDER BY transaction_date DESC"
     transactions = SqlRunner.run( sql )
     result = transactions.map { |transaction| Transaction.new(transaction) }
     return result
@@ -80,4 +81,12 @@ class Transaction
     result = Tag.new(tag)
     return result.name
   end
+
+  def self.balance()
+    sql = "SELECT SUM(amount) FROM transactions"
+    total = SqlRunner.run(sql).first
+
+    return Money.money_to_layout(total['sum'].to_i())
+  end
+
 end

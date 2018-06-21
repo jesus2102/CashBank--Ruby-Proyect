@@ -58,7 +58,7 @@ transaction2 = Transaction.new({
   'tag_id' => tag1.id,
   'amount' => 2415,
   'reference' => '',
-  'transaction_date' => '2018/06/13 18:33:30'
+  'transaction_date' => '2018/06/13'
 })
 
 transaction3 = Transaction.new({
@@ -66,21 +66,21 @@ transaction3 = Transaction.new({
   'tag_id' => tag4.id,
   'amount' => 11995,
   'reference' => 'New chair',
-  'transaction_date' => '2018/08/14 08:45:21'
+  'transaction_date' => '2018/08/14'
 })
 
 transaction4 = Transaction.new({
   'merchant_id' => merchant4.id,
   'tag_id' => tag1.id,
   'reference' => 'Barbacue',
-  'transaction_date' => '2018/06/17 16:02:22'
+  'transaction_date' => '2018/06/17'
 })
 
 transaction5 = Transaction.new({
   'merchant_id' => merchant3.id,
   'tag_id' => tag3.id,
   'reference' => 'Ipad Pro',
-  'transaction_date' => '2018/06/18 11:15:12'
+  'transaction_date' => '2018/06/18'
 })
 
 transaction1.save()
