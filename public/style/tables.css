@@ -35,6 +35,9 @@ td{
   width: 35%
 }
 
+table.main-table {
+  width: -webkit-fill-available;
+}
 
 table{
   margin-left: auto;

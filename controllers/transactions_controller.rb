@@ -29,7 +29,6 @@ get '/transactions/:id/edit' do
   @merchants = Merchant.all()
   @tags = Tag.all()
   @transactions = Transaction.all()
-  @date = params[:transaction_date_object]
   @id = params[:id].to_i()
   erb (:"transactions/modify")
 end

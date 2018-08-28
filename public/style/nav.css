@@ -34,11 +34,11 @@ nav h1:hover {
     background-color: lightblue;
 }
 
-.balance{
-  display: block;
-  text-align: right;
-  color: grey;
-  margin-right: 5em;
+nav h3{
+  color: white;
+  margin-left: auto;
+  margin-top: 5px;
+  margin-bottom: 0px;
   padding: 6px;
   text-decoration: none;
 }
